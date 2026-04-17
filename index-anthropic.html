@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Инструкция по применению себя — Команда МФЦ Кировской области</title>
+<link rel="stylesheet" href="style-anthropic.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-inner">
+  <span class="nav-logo">Команда Нагаева · МФЦ Кировской области</span>
+  <a href="#methods">Методики</a>
+  <a href="#team">Команда</a>
+  <a href="#conflict-matrix">Конфликтность</a>
+  <a href="#agreement">Соглашение</a>
+  <a href="#people">Персоналии</a>
+  <a href="#why">Зачем это</a>
+  <a href="#compare">Ты и коллега</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p style="font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:16px">Трек «Конфликты» · КАССМИК · 2025–2026</p>
+  <h1>Разные —<br>и это сила</h1>
+  <p style="font-size:18px;color:var(--fg);max-width:640px;margin:0 auto 16px;font-weight:500">7 человек. 7 способов думать, спорить и решать.<br>Одна команда.</p>
+  <p style="font-size:15px;color:var(--muted);max-width:580px;margin:0 auto">Конфликт — не поломка. Это место, где рождается команда.<br>Этот сайт — карта, чтобы пройти его вместе.</p>
+</div>
+
+<!-- §1 МЕТОДИКИ -->
+<section id="methods">
+  <div class="section-title">Методики</div>
+  <div class="section-sub">Два инструмента, которые вместе дают объёмный портрет каждого участника команды</div>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-icon">🧠</div>
+      <h4>16Personalities (MBTI)</h4>
+      <p>Типология личности по 5 измерениям. Определяет, как человек думает, принимает решения и взаимодействует с миром.</p>
+      <div class="method-list" style="margin-top:12px">
+        <strong>5 измерений:</strong><br>
+        Экстраверт ↔ Интроверт — откуда энергия<br>
+        Интуитивный ↔ Наблюдательный — как обрабатывает информацию<br>
+        Логичный ↔ Эмоциональный — как принимает решения<br>
+        Организованный ↔ Гибкий — как планирует жизнь<br>
+        Уверенный ↔ Неспокойный — как реагирует на стресс
+      </div>
+      <div class="method-list" style="margin-top:12px">
+        <strong>4 группы типов:</strong><br>
+        <span style="color:#8e44ad">■</span> Аналитики (NT) — стратегия и логика<br>
+        <span style="color:#27ae60">■</span> Дипломаты (NF) — люди и ценности<br>
+        <span style="color:#3498db">■</span> Стражи (SJ) — порядок и стабильность<br>
+        <span style="color:#d97757">■</span> Исследователи (SP) — гибкость и адаптация
+      </div>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">⚔️</div>
+      <h4>Тест Томаса-Килманна (TKI)</h4>
+      <p>Показывает предпочтительный стиль поведения в конфликте. Не «хороший» или «плохой» — а предрасположенность, которую важно знать.</p>
+      <div class="method-list" style="margin-top:12px">
+        <strong>5 стилей:</strong><br>
+        <span style="color:var(--red)">Соперничество</span> — продавливаю свою позицию<br>
+        Сотрудничество — ищу решение, которое устроит обоих<br>
+        Компромисс — каждый уступает часть<br>
+        <span style="color:var(--blue)">Избегание</span> — ухожу от конфликта<br>
+        Приспособление — уступаю ради отношений
+      </div>
+    </div>
+  </div>
+
+  <div id="methods-narrative"></div>
+
+  <div class="quote">
+    «Не так важно, сколько в вашей команде крутых и умных.<br>
+    Гораздо важнее то, как вы умеете работать вместе друг с другом.»
+  </div>
+</section>
+
+<!-- §2 КОМАНДА -->
+<section id="team">
+  <div class="section-title">Взгляд на команду</div>
+  <div class="section-sub">7 человек · 4 группы · 1 интроверт · через призму MBTI, TKI и 5 пороков Ленсиони</div>
+
+  <h3>Командный профиль</h3>
+  <div id="team-narrative"></div>
+
+  <h3>5 пороков Ленсиони — текущее состояние</h3>
+  <div id="lencioni-container"></div>
+
+  <h3>Конфликтные пары — где могут быть столкновения</h3>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:16px">На основе TKI-профилей и типов личности. Не «проблемные пары» — а пары, которые требуют осознанности.</p>
+  <div id="conflict-pairs"></div>
+</section>
+
+<!-- §2.5 МАТРИЦА КОНФЛИКТНОСТИ -->
+<section id="conflict-matrix">
+  <div class="section-title">Карта конфликтной совместимости</div>
+  <div class="section-sub">Матрица 7×7: потенциальная конфликтность каждой пары на основе TKI-профилей. Зелёный — низкая, жёлтый — средняя, красный — высокая.</div>
+  <div id="conflict-matrix-container"></div>
+</section>
+
+<!-- §3 СОГЛАШЕНИЕ -->
+<section id="agreement">
+  <div class="section-title">Командное соглашение через профили</div>
+  <div class="section-sub">18 пунктов соглашения × 7 человек. Цвет показывает, насколько легко каждому соблюдать конкретный пункт.<br>Отсортировано от самых трудных для команды к самым лёгким.</div>
+
+  <div style="margin-bottom:12px;font-size:13px">
+    <span style="display:inline-block;width:18px;height:14px;background:#e8f5e9;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Л — легко &nbsp;
+    <span style="display:inline-block;width:18px;height:14px;background:#fff8e1;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> С — средне &nbsp;
+    <span style="display:inline-block;width:18px;height:14px;background:#fde8e8;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Т — трудно &nbsp;
+    <span style="display:inline-block;width:18px;height:14px;background:#f5f5f5;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> ? — не определён
+  </div>
+  <div id="heatmap-container"></div>
+
+  <div id="agreement-summary"></div>
+
+  <h3>Карта соглашений: трудность vs эффект</h3>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:8px">Каждая точка — пункт соглашения. По горизонтали — сколько людей оценили как «Трудно». По вертикали — эффект на командную работу по трёхфакторной модели (транзакционные издержки + качество решений + качество исполнения). Красные точки = высокий риск: одновременно трудно и критично.</p>
+  <div id="scatter-container"></div>
+</section>
+
+<!-- §4 ПЕРСОНАЛИИ -->
+<section id="people">
+  <div class="section-title">Персоналии</div>
+  <div class="section-sub">Нажмите на карточку, чтобы раскрыть полный профиль с триггерами, сильными сторонами и рекомендациями.</div>
+  <div id="person-cards"></div>
+</section>
+
+<!-- §5 ЗАЧЕМ -->
+<section id="why">
+  <div class="section-title">Зачем «Инструкция по применению себя»?</div>
+  <div class="section-sub">Не ради тестов — ради того, чтобы работать вместе эффективнее</div>
+
+  <p style="font-size:14px;max-width:700px;margin-bottom:24px">Каждый из нас устроен по-своему. Мы по-разному спорим, обрабатываем обратную связь, реагируем на давление. «Инструкция» — это способ сказать команде: <em>«вот как я работаю, вот как со мной лучше, вот мои слепые зоны»</em> — до того, как эти зоны ударят по общему результату.</p>
+
+  <h3>Четыре сценария, где это спасает</h3>
+
+  <div class="scenario">
+    <div class="scenario-title">📋 Планёрка</div>
+    <p>Юля (единственный интроверт) молчит, потому что 6 экстравертов заняли эфир. Николай, зная её профиль, спрашивает первой: «Юля, что у тебя?» — и команда получает наблюдение, которое без этого ушло бы «под ковёр».</p>
+  </div>
+  <div class="scenario">
+    <div class="scenario-title">💬 Сложный разговор 1-на-1</div>
+    <p>Николай даёт Михаилу обратную связь. Михаил (Сотр 3) закрывается. Николай, зная профиль, не давит: «Я сказал — переварь, вернись через час». Михаил возвращается с ответом, а не с обидой.</p>
+  </div>
+  <div class="scenario">
+    <div class="scenario-title">⚡ Проектный конфликт</div>
+    <p>Ольга (Соп 11) и Юра (Соп 10) столкнулись на совещании. Мария (Компр 11) вмешивается: «Подождите — у нас два варианта, давайте третий». Конфликт превращается в совместное решение.</p>
+  </div>
+  <div class="scenario">
+    <div class="scenario-title">🤝 Новый сотрудник</div>
+    <p>В команду пришёл новый человек. Вместо месяца «притирки» — прочитал 7 карточек за вечер и на первой планёрке уже знает: «Юра — не нападает, а думает вслух; с Михаилом — наедине, не при всех; Ирине — дай время».</p>
+  </div>
+
+  <div class="quote">
+    «Проблема не в том, что мы разные. Проблема в том, что мы не знаем, какие именно. Когда знаешь — разность становится силой, а не трением.»
+  </div>
+</section>
+
+<!-- §6 ТЫ И КОЛЛЕГА -->
+<section id="compare">
+  <div class="section-title">Ты и коллега</div>
+  <div class="section-sub">Выберите двух людей — и получите персональные рекомендации для работы в паре</div>
+
+  <div class="pair-select">
+    <div>
+      <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Я</label>
+      <select id="select-a"></select>
+    </div>
+    <div>
+      <label style="font-size:12px;color:var(--muted);display:block;margin-bottom:4px">Коллега</label>
+      <select id="select-b"></select>
+    </div>
+  </div>
+
+  <div id="pair-result" class="pair-result"></div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  Команда МФЦ Кировской области · Акселератор КАССМИК · 2025–2026<br>
+  Подготовлено с помощью MBTI (16Personalities) и TKI (Томас-Килманн)
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
