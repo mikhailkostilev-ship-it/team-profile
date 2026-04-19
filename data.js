@@ -349,9 +349,10 @@ function conflictScore(a, b) {
 }
 
 function conflictLevel(score) {
-  if (score <= 3) return {level: 'low', color: '#27ae60', text: 'Низкая конфликтность', emoji: '🟢'};
-  if (score <= 6) return {level: 'medium', color: '#e6a817', text: 'Средняя — требует внимания', emoji: '🟡'};
-  return {level: 'high', color: '#c0392b', text: 'Высокая — нужны правила', emoji: '🔴'};
+  if (score <= 2) return {level:'low', color:'#5B8C5A', text:'Низкая конфликтность', emoji:'🟢'};
+  if (score <= 4) return {level:'moderate', color:'#C9A227', text:'Умеренная — есть нюансы', emoji:'🟡'};
+  if (score <= 6) return {level:'elevated', color:'#D97757', text:'Повышенная — требует внимания', emoji:'🟠'};
+  return {level:'high', color:'#B44D3E', text:'Высокая — нужны правила', emoji:'🔴'};
 }
 
 // ─── Конфликтные пары ────────────────────────────────

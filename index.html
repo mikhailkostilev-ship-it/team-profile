@@ -15,10 +15,8 @@
   <a href="#methods">Методики</a>
   <a href="#team">Команда</a>
   <a href="#conflict-matrix">Конфликтность</a>
-  <a href="#agreement">Соглашение</a>
-  <a href="#people">Персоналии</a>
-  <a href="#why">Зачем это</a>
   <a href="#compare">Ты и коллега</a>
+  <a href="#agreement">Соглашение</a>
 </div>
 </nav>
 
@@ -50,10 +48,10 @@
       </div>
       <div class="method-list" style="margin-top:12px">
         <strong>4 группы типов:</strong><br>
-        <span style="color:#8e44ad">■</span> Аналитики (NT) — стратегия и логика<br>
-        <span style="color:#27ae60">■</span> Дипломаты (NF) — люди и ценности<br>
-        <span style="color:#3498db">■</span> Стражи (SJ) — порядок и стабильность<br>
-        <span style="color:#d97757">■</span> Исследователи (SP) — гибкость и адаптация
+        <span style="color:#8e44ad">■</span> Аналитики — стратегия и логика<br>
+        <span style="color:#27ae60">■</span> Дипломаты — люди и ценности<br>
+        <span style="color:#3498db">■</span> Стражи — порядок и стабильность<br>
+        <span style="color:#d97757">■</span> Исследователи — гибкость и адаптация
       </div>
     </div>
     <div class="method-card">
@@ -79,91 +77,32 @@
   </div>
 </section>
 
-<!-- §2 КОМАНДА -->
+<!-- §2 КОМАНДА: карточки + профиль -->
 <section id="team">
-  <div class="section-title">Взгляд на команду</div>
-  <div class="section-sub">7 человек · 4 группы · 1 интроверт · через призму MBTI, TKI и 5 пороков Ленсиони</div>
+  <div class="section-title">Команда</div>
+  <div class="section-sub">7 человек · 4 группы. Нажмите на карточку, чтобы раскрыть полный профиль.</div>
+
+  <div id="person-cards"></div>
 
   <h3>Командный профиль</h3>
   <div id="team-narrative"></div>
+</section>
 
-  <h3>5 пороков Ленсиони — текущее состояние</h3>
-  <div id="lencioni-container"></div>
+<!-- §3 КОНФЛИКТНАЯ СОВМЕСТИМОСТЬ -->
+<section id="conflict-matrix">
+  <div class="section-title">Конфликтная совместимость</div>
+  <div class="section-sub">Матрица 7×7: потенциальная конфликтность каждой пары на основе TKI-профилей.</div>
+  <div id="conflict-matrix-container"></div>
 
   <h3>Конфликтные пары — где могут быть столкновения</h3>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:16px">На основе TKI-профилей и типов личности. Не «проблемные пары» — а пары, которые требуют осознанности.</p>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Не «проблемные пары» — а пары, которые требуют осознанности.</p>
   <div id="conflict-pairs"></div>
 </section>
 
-<!-- §2.5 МАТРИЦА КОНФЛИКТНОСТИ -->
-<section id="conflict-matrix">
-  <div class="section-title">Карта конфликтной совместимости</div>
-  <div class="section-sub">Матрица 7×7: потенциальная конфликтность каждой пары на основе TKI-профилей. Зелёный — низкая, жёлтый — средняя, красный — высокая.</div>
-  <div id="conflict-matrix-container"></div>
-</section>
-
-<!-- §3 СОГЛАШЕНИЕ -->
-<section id="agreement">
-  <div class="section-title">Командное соглашение через профили</div>
-  <div class="section-sub">18 пунктов соглашения × 7 человек. Цвет показывает, насколько легко каждому соблюдать конкретный пункт.<br>Отсортировано от самых трудных для команды к самым лёгким.</div>
-
-  <div style="margin-bottom:12px;font-size:13px">
-    <span style="display:inline-block;width:18px;height:14px;background:#e8f5e9;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Л — легко &nbsp;
-    <span style="display:inline-block;width:18px;height:14px;background:#fff8e1;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> С — средне &nbsp;
-    <span style="display:inline-block;width:18px;height:14px;background:#fde8e8;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Т — трудно &nbsp;
-    <span style="display:inline-block;width:18px;height:14px;background:#f5f5f5;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> ? — не определён
-  </div>
-  <div id="heatmap-container"></div>
-
-  <div id="agreement-summary"></div>
-
-  <h3>Карта соглашений: трудность vs эффект</h3>
-  <p style="font-size:13px;color:var(--muted);margin-bottom:8px">Каждая точка — пункт соглашения. По горизонтали — сколько людей оценили как «Трудно». По вертикали — эффект на командную работу по трёхфакторной модели (транзакционные издержки + качество решений + качество исполнения). Красные точки = высокий риск: одновременно трудно и критично.</p>
-  <div id="scatter-container"></div>
-</section>
-
-<!-- §4 ПЕРСОНАЛИИ -->
-<section id="people">
-  <div class="section-title">Персоналии</div>
-  <div class="section-sub">Нажмите на карточку, чтобы раскрыть полный профиль с триггерами, сильными сторонами и рекомендациями.</div>
-  <div id="person-cards"></div>
-</section>
-
-<!-- §5 ЗАЧЕМ -->
-<section id="why">
-  <div class="section-title">Зачем «Инструкция по применению себя»?</div>
-  <div class="section-sub">Не ради тестов — ради того, чтобы работать вместе эффективнее</div>
-
-  <p style="font-size:14px;max-width:700px;margin-bottom:24px">Каждый из нас устроен по-своему. Мы по-разному спорим, обрабатываем обратную связь, реагируем на давление. «Инструкция» — это способ сказать команде: <em>«вот как я работаю, вот как со мной лучше, вот мои слепые зоны»</em> — до того, как эти зоны ударят по общему результату.</p>
-
-  <h3>Четыре сценария, где это спасает</h3>
-
-  <div class="scenario">
-    <div class="scenario-title">📋 Планёрка</div>
-    <p>Юля (единственный интроверт) молчит, потому что 6 экстравертов заняли эфир. Николай, зная её профиль, спрашивает первой: «Юля, что у тебя?» — и команда получает наблюдение, которое без этого ушло бы «под ковёр».</p>
-  </div>
-  <div class="scenario">
-    <div class="scenario-title">💬 Сложный разговор 1-на-1</div>
-    <p>Николай даёт Михаилу обратную связь. Михаил (Сотр 3) закрывается. Николай, зная профиль, не давит: «Я сказал — переварь, вернись через час». Михаил возвращается с ответом, а не с обидой.</p>
-  </div>
-  <div class="scenario">
-    <div class="scenario-title">⚡ Проектный конфликт</div>
-    <p>Ольга (Соп 11) и Юра (Соп 10) столкнулись на совещании. Мария (Компр 11) вмешивается: «Подождите — у нас два варианта, давайте третий». Конфликт превращается в совместное решение.</p>
-  </div>
-  <div class="scenario">
-    <div class="scenario-title">🤝 Новый сотрудник</div>
-    <p>В команду пришёл новый человек. Вместо месяца «притирки» — прочитал 7 карточек за вечер и на первой планёрке уже знает: «Юра — не нападает, а думает вслух; с Михаилом — наедине, не при всех; Ирине — дай время».</p>
-  </div>
-
-  <div class="quote">
-    «Проблема не в том, что мы разные. Проблема в том, что мы не знаем, какие именно. Когда знаешь — разность становится силой, а не трением.»
-  </div>
-</section>
-
-<!-- §6 ТЫ И КОЛЛЕГА -->
+<!-- §4 ТЫ И КОЛЛЕГА -->
 <section id="compare">
   <div class="section-title">Ты и коллега</div>
-  <div class="section-sub">Выберите двух людей — и получите персональные рекомендации для работы в паре</div>
+  <div class="section-sub">Выберите двух людей — и получите персональные рекомендации: что объединяет, где напряжение, как работать в паре.</div>
 
   <div class="pair-select">
     <div>
@@ -179,9 +118,28 @@
   <div id="pair-result" class="pair-result"></div>
 </section>
 
+<!-- §5 КОМАНДНОЕ СОГЛАШЕНИЕ -->
+<section id="agreement">
+  <div class="section-title">Командное соглашение</div>
+  <div class="section-sub">18 пунктов соглашения × 7 человек. Цвет показывает, насколько легко каждому соблюдать конкретный пункт.<br>Отсортировано от самых трудных для команды к самым лёгким.</div>
+
+  <div style="margin-bottom:12px;font-size:13px">
+    <span style="display:inline-block;width:18px;height:14px;background:#e8f5e9;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Л — легко &nbsp;
+    <span style="display:inline-block;width:18px;height:14px;background:#fff8e1;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> С — средне &nbsp;
+    <span style="display:inline-block;width:18px;height:14px;background:#fde8e8;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> Т — трудно
+  </div>
+  <div id="heatmap-container"></div>
+
+  <div id="agreement-summary"></div>
+
+  <h3>Карта соглашений: трудность vs эффект</h3>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:8px">Каждая точка — пункт соглашения. По горизонтали — сколько людей оценили как «Трудно». По вертикали — эффект на командную работу по трёхфакторной модели. Красные точки = высокий риск.</p>
+  <div id="scatter-container"></div>
+</section>
+
 <!-- FOOTER -->
 <div class="footer">
-  Команда МФЦ Кировской области · Акселератор КАССМИК · 2025–2026<br>
+  Команда МФЦ Кировской области · Трек «Конфликты» · КАССМИК · 2025–2026<br>
   Подготовлено с помощью MBTI (16Personalities) и TKI (Томас-Килманн)
 </div>
 

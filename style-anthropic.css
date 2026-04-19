@@ -290,3 +290,25 @@ ul.section-list li {
 .pair-person-name{font-family:var(--font-body);font-size:18px;font-weight:600;letter-spacing:-.01em}
 .pair-person-type{font-size:12px;color:var(--muted)}
 .pair-arrow{font-size:18px;color:var(--muted)}
+
+/* ─── CARD HEADER v2: compact with group + TKI ─── */
+.card-header-main{flex:1}
+.card-meta{display:flex;align-items:center;gap:10px;margin-top:4px}
+.card-group-tag{font-size:10px;font-weight:600;color:#fff;padding:2px 10px;border-radius:100px;letter-spacing:.3px}
+.card-mbti{font-size:13px;color:var(--muted)}
+.card-tki-compact{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.tki-compact-item{font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;background:var(--bg)}
+.tki-c-hi{color:#8B3A2E;background:#FCECEA}
+.tki-c-lo{color:#2B6A8A;background:#E8F4F8}
+.tki-c-mid{color:var(--muted);background:var(--bg)}
+.card-motto{font-size:12px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.5}
+
+/* ─── GROUP DIVIDER ─── */
+.group-divider{font-size:13px;font-weight:600;color:var(--muted);margin:28px 0 10px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.group-divider-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+
+/* ─── CONFLICT MATRIX 4-color ─── */
+.conflict-matrix td.cm-orange{background:#FDEBD0;color:#A04000;font-weight:600}
+
+/* ─── Remove old role from card-type if still rendered ─── */
+.card-type{display:none}

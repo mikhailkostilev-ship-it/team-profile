@@ -4,14 +4,13 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   renderMethodsNarrative();
+  renderPersonCards();
   renderTeamNarrative();
-  renderLencioni();
-  renderConflictPairs();
   renderConflictMatrix();
+  renderConflictPairs();
   renderHeatmap();
   renderAgreementSummary();
   renderScatterPlot();
-  renderPersonCards();
   renderPairCompare();
   setupNav();
 });
@@ -284,7 +283,7 @@ function renderConflictMatrix() {
       } else {
         const score = conflictScore(pA, pB);
         const lvl = conflictLevel(score);
-        const cls = score <= 3 ? 'cm-green' : score <= 6 ? 'cm-yellow' : 'cm-red';
+        const cls = score <= 2 ? 'cm-green' : score <= 4 ? 'cm-yellow' : score <= 6 ? 'cm-orange' : 'cm-red';
         html += `<td class="${cls}" title="${pA.short} ↔ ${pB.short}: ${lvl.text} (${score})">${score}</td>`;
       }
     });
@@ -295,9 +294,10 @@ function renderConflictMatrix() {
 
   html += `
     <div style="margin-top:12px;font-size:13px;color:var(--muted)">
-      <span style="display:inline-block;width:14px;height:14px;background:#e8f5e9;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 0-3 — низкая &nbsp;
-      <span style="display:inline-block;width:14px;height:14px;background:#fff8e1;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 4-6 — средняя &nbsp;
-      <span style="display:inline-block;width:14px;height:14px;background:#fde8e8;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 7+ — высокая
+      <span style="display:inline-block;width:14px;height:14px;background:#EDF5ED;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 0–2 — низкая &nbsp;
+      <span style="display:inline-block;width:14px;height:14px;background:#FDF6E3;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 3–4 — умеренная &nbsp;
+      <span style="display:inline-block;width:14px;height:14px;background:#FDEBD0;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 5–6 — повышенная &nbsp;
+      <span style="display:inline-block;width:14px;height:14px;background:#FCECEA;border:1px solid #ccc;vertical-align:middle;border-radius:3px"></span> 7+ — высокая
     </div>
     <p style="font-size:13px;color:var(--muted);margin-top:12px">
       Алгоритм: оба высокое соперничество (≥8) → +4; один высокое → +2;
@@ -585,11 +585,40 @@ function renderScatterPlot() {
 function renderPersonCards() {
   const container = document.getElementById('person-cards');
   if (!container) return;
-  TEAM.forEach(p => {
+
+  // Сортировка: Аналитики (NT) → Дипломаты (NF) → Стражи (SJ) → Исследователи (SP)
+  const groupOrder = {'NT':0,'NF':1,'SJ':2,'SP':3};
+  const groupNames = {'NT':'Аналитики','NF':'Дипломаты','SJ':'Стражи','SP':'Исследователи'};
+  const sorted = [...TEAM].sort((a,b) => (groupOrder[a.group]||9) - (groupOrder[b.group]||9));
+
+  let currentGroup = '';
+  sorted.forEach(p => {
+    // Group divider
+    if (p.group !== currentGroup) {
+      currentGroup = p.group;
+      const divider = document.createElement('div');
+      divider.className = 'group-divider';
+      divider.innerHTML = `<span class="group-divider-dot" style="background:${p.color}"></span> ${groupNames[p.group]}`;
+      container.appendChild(divider);
+    }
+
     const card = document.createElement('div');
     card.className = 'card';
 
-    // Build triggers with descriptions
+    // TKI compact for header
+    const tkiItems = [
+      {name:'Соп', val:p.tki.compete},
+      {name:'Сотр', val:p.tki.collaborate},
+      {name:'Комп', val:p.tki.compromise},
+      {name:'Изб', val:p.tki.avoid},
+      {name:'Присп', val:p.tki.accommodate},
+    ];
+    const tkiCompact = tkiItems.map(it => {
+      const cls = it.val>=8?'tki-c-hi':it.val<=3?'tki-c-lo':'tki-c-mid';
+      return `<span class="tki-compact-item ${cls}">${it.name} ${it.val}</span>`;
+    }).join('');
+
+    // Triggers
     let triggersHtml = '';
     if (p.triggersDesc && p.triggersDesc.length) {
       triggersHtml = p.triggers.map((t, i) => `
@@ -602,7 +631,7 @@ function renderPersonCards() {
       triggersHtml = `<ul class="section-list">${p.triggers.map(s=>`<li>${s}</li>`).join('')}</ul>`;
     }
 
-    // Build traits with descriptions
+    // Traits
     let traitsHtml = '';
     if (p.traitsDesc && p.traitsDesc.length) {
       traitsHtml = `<div class="traits-row">${p.traits.map((t, i) => `
@@ -617,24 +646,24 @@ function renderPersonCards() {
       `).join('')}</div>`;
     }
 
-    // Support block
+    // Support
     let supportHtml = '';
     if (p.support && p.support.length) {
-      supportHtml = `
-        <div class="support-block">
-          <h4>Как меня поддержать</h4>
-          <ul class="section-list">${p.support.map(s=>`<li>${s}</li>`).join('')}</ul>
-        </div>
-      `;
+      supportHtml = `<div class="support-block"><h4>Как меня поддержать</h4>
+        <ul class="section-list">${p.support.map(s=>`<li>${s}</li>`).join('')}</ul></div>`;
     }
 
     card.innerHTML = `
       <div class="card-header" onclick="this.parentElement.classList.toggle('open')">
-        <div>
+        <div class="card-header-main">
           <div class="card-name">${p.name}</div>
-          <div class="card-type">${p.role}</div>
+          <div class="card-meta">
+            <span class="card-group-tag" style="background:${p.color}">${groupNames[p.group]}</span>
+            <span class="card-mbti">${p.mbti} · ${p.typeName}</span>
+          </div>
+          <div class="card-tki-compact">${tkiCompact}</div>
+          <div class="card-motto">${p.motto}</div>
         </div>
-        <div class="card-pill" style="background:${p.color}">${p.mbti} · ${p.typeName}</div>
         <span class="card-toggle">›</span>
       </div>
       <div class="card-body">
@@ -642,7 +671,6 @@ function renderPersonCards() {
         ${p.big5 ? renderBig5(p) : '<p style="font-size:12px;color:var(--muted);font-style:italic">Big Five не пройден детально</p>'}
         <h4>Стиль в конфликте (Килманн)</h4>
         ${renderTKI(p.tki)}
-        <div class="quote">${p.motto}</div>
         <div class="grid-2">
           <div>
             <h4 style="color:var(--green)">Сильные стороны</h4>
