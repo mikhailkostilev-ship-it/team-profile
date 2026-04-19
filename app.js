@@ -587,9 +587,9 @@ function renderPersonCards() {
   if (!container) return;
 
   // Сортировка: Аналитики (NT) → Дипломаты (NF) → Стражи (SJ) → Исследователи (SP)
-  const groupOrder = {'NT':0,'NF':1,'SJ':2,'SP':3};
+  const groupOrder = {'NT':1,'NF':2,'SJ':3,'SP':4};
   const groupNames = {'NT':'Аналитики','NF':'Дипломаты','SJ':'Стражи','SP':'Исследователи'};
-  const sorted = [...TEAM].sort((a,b) => (groupOrder[a.group]||9) - (groupOrder[b.group]||9));
+  const sorted = [...TEAM].sort((a,b) => groupOrder[a.group] - groupOrder[b.group]);
 
   let currentGroup = '';
   sorted.forEach(p => {
