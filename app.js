@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderMethodsNarrative();
   renderPersonCards();
-  renderTeamNarrative();
+  renderTeamSummary();
   renderConflictMatrix();
   renderConflictPairs();
   renderHeatmap();
@@ -83,87 +83,44 @@ function renderMethodsNarrative() {
 }
 
 // ─── TEAM NARRATIVE ────────────────────
-function renderTeamNarrative() {
-  const el = document.getElementById('team-narrative');
+function renderTeamSummary() {
+  const el = document.getElementById('team-summary');
   if (!el) return;
 
   el.innerHTML = `
-    <div class="team-narrative">
-      <div class="team-group">
-        <div class="team-group-header">
-          <div class="team-group-dot" style="background:#8e44ad"></div>
-          <div class="team-group-title">Аналитики (NT) — 3 человека</div>
-        </div>
-        <div class="team-group-members">Николай (ENTJ-A) · Юра (ENTP-T) · Мария (ENTJ-A)</div>
-        <p>
-          Почти половина команды — аналитики. Это люди стратегии, логики и быстрых решений.
-          Николай и Мария — оба Командиры (ENTJ), что означает двойную силу в планировании и исполнении,
-          но и двойной риск давления на остальных. Юра (ENTP, Полемист) добавляет креативность и вызов —
-          он тот, кто не даёт команде застрять в «так было всегда». Три аналитика задают высокий темп
-          мышления, но могут недооценивать эмоциональную сторону решений.
-        </p>
+    <div class="team-group" style="border-left:3px solid var(--accent)">
+      <div class="team-group-header">
+        <div class="team-group-title">6 экстравертов и 1 интроверт</div>
       </div>
+      <p>
+        Команда заряжена на общение, быстрые обсуждения и коллективную энергию.
+        Для Юли (единственный интроверт) каждая планёрка — марафон.
+        Практическое правило: <strong>спрашивайте Юлю первой</strong>,
+        давайте время на ответ, не перебивайте.
+      </p>
+    </div>
 
-      <div class="team-group">
-        <div class="team-group-header">
-          <div class="team-group-dot" style="background:#27ae60"></div>
-          <div class="team-group-title">Дипломаты (NF) — 2 человека</div>
-        </div>
-        <div class="team-group-members">Ирина (ENFJ-T) · Ольга (ENFJ-A)</div>
-        <p>
-          Две ENFJ — но какие разные! Ирина (Турбулентная) — мост и медиатор, она чувствует напряжение
-          до того, как оно станет конфликтом. Ольга (Ассертивная) — двигатель, её Соперничество 11
-          делает её самым напористым человеком в команде. Вместе они отвечают за «человеческое»
-          в командных процессах: Ирина — за безопасность, Ольга — за энергию и смысл.
-          Без них команда аналитиков рискует стать машиной без сердца.
-        </p>
+    <h3>Сила и уязвимость этой команды</h3>
+    <div class="grid-2">
+      <div>
+        <h4 style="color:var(--green)">В чём сила</h4>
+        <ul class="section-list">
+          <li><strong>Высокий компромисс</strong> (5 из 7) — команда умеет договариваться. В большинстве команд это слабое место</li>
+          <li><strong>Аналитический костяк</strong> (3 NT) — стратегическое мышление, быстрые решения, системный подход</li>
+          <li><strong>Два дипломата-ENFJ</strong> — редкое сочетание: и мост (Ирина), и двигатель (Ольга) в одной команде</li>
+          <li><strong>Высокое соперничество</strong> (среднее 7.4 — выше нормы) — команда не боится спорить. Во многих командах этого остро не хватает</li>
+          <li><strong>Разнообразие групп</strong> (все 4) — покрыты и стратегия, и люди, и порядок, и адаптация</li>
+        </ul>
       </div>
-
-      <div class="team-group">
-        <div class="team-group-header">
-          <div class="team-group-dot" style="background:#3498db"></div>
-          <div class="team-group-title">Стражи (SJ) — 1 человек</div>
-        </div>
-        <div class="team-group-members">Михаил (ESFJ-A)</div>
-        <p>
-          Единственный Страж в команде визионеров. Михаил — фундамент: организованность 82%,
-          экстраверсия 90% (максимум в команде), надёжность и чувство атмосферы.
-          Он тот, кто превращает стратегии аналитиков в работающие процессы.
-          Но его голос может теряться среди трёх NT и двух напористых NF —
-          особенно учитывая его Избегание 7 и Приспособление 7. Команде важно
-          осознанно спрашивать Михаила: «Что ты правда думаешь?» — потому что сам он не скажет.
-        </p>
-      </div>
-
-      <div class="team-group">
-        <div class="team-group-header">
-          <div class="team-group-dot" style="background:#d97757"></div>
-          <div class="team-group-title">Исследователи (SP) — 1 человек</div>
-        </div>
-        <div class="team-group-members">Юля (ISFP-A)</div>
-        <p>
-          Юля — единственный исследователь и единственный интроверт в команде из 7 человек.
-          Двойная уникальность — и двойной риск. В комнате, где 6 экстравертов генерируют идеи вслух,
-          Юля обрабатывает глубоко и молча. Её наблюдательность (69%) ловит детали, которые
-          все остальные пропускают. Но если команда не создаёт для неё пространство — эти детали
-          останутся невысказанными. При этом её Соперничество 8 — неожиданно высокое:
-          Юля не мягкая, она тихая. Когда её ценности задеты, она будет стоять на своём.
-        </p>
-      </div>
-
-      <div class="team-group" style="border-left:3px solid var(--accent)">
-        <div class="team-group-header">
-          <div class="team-group-title">6 экстравертов и 1 интроверт</div>
-        </div>
-        <p>
-          Команда заряжена на общение, быстрые обсуждения и коллективную энергию.
-          Это сила — решения принимаются быстро, идеи генерируются в потоке.
-          Но для Юли (единственный интроверт, ISFP) каждая планёрка — это марафон:
-          она тратит энергию там, где остальные её получают.
-          Практическое правило: <strong>спрашивайте Юлю первой</strong>,
-          давайте ей время на ответ, не перебивайте. Её молчание — это не согласие,
-          а глубокая обработка. И часто именно в этой глубине — самые ценные наблюдения.
-        </p>
+      <div>
+        <h4 style="color:var(--red)">Где уязвимость</h4>
+        <ul class="section-list">
+          <li><strong>Нет выраженного сотрудника</strong> — ни у кого сотрудничество не первая стратегия. Максимум — 8 (Ирина). Команда привыкла к «ни вашим, ни нашим», а не к win-win</li>
+          <li><strong>1 интроверт среди 6 экстравертов</strong> — голос Юли рискует потеряться. Типичный перекос, но здесь критичный: Юля видит то, чего не видят остальные</li>
+          <li><strong>Компромисс может маскировать конфликт</strong> — быстрая «серединка» удобна, но ведёт к слабым решениям. Настоящий спор идей не происходит</li>
+          <li><strong>Обратная связь — антирекорд</strong> — команда договорилась давать ОС, но пока не умеет. Самый большой разрыв между намерением и поведением</li>
+          <li><strong>Два «нуля»</strong> — Мария (Присп 0) и Юра (Изб 2): один не уступает, другой не уклоняется. Мощно, но без осознанности — взрывоопасно</li>
+        </ul>
       </div>
     </div>
   `;
@@ -314,26 +271,45 @@ function renderHeatmap() {
   const el = document.getElementById('heatmap-container');
   if (!el) return;
   const names = HEATMAP_ORDER.map(id => TEAM.find(p=>p.id===id).short);
-  let html = '<table class="heatmap"><thead><tr><th class="pt-id">Пункт</th><th class="pt-text">Соглашение</th>';
-  names.forEach(n => { html += `<th>${n}</th>`; });
-  html += '</tr></thead><tbody>';
 
-  const sorted = [...AGREEMENT_POINTS].sort((a,b) => {
-    const hA = (HEATMAP[a.id]||[]).filter(v=>v==='H').length;
-    const hB = (HEATMAP[b.id]||[]).filter(v=>v==='H').length;
-    return hB - hA;
-  });
+  let html = '';
 
-  sorted.forEach(pt => {
-    const vals = HEATMAP[pt.id] || [];
-    html += `<tr><td class="pt-id">${pt.id}</td><td class="pt-text">${pt.text}</td>`;
-    vals.forEach(v => {
-      const label = v==='L'?'Л':v==='M'?'С':v==='H'?'Т':'?';
-      html += `<td class="${v==='?'?'Q':v}">${label}</td>`;
+  // Render by clusters
+  if (typeof AGREEMENT_CLUSTERS !== 'undefined' && AGREEMENT_CLUSTERS.length) {
+    AGREEMENT_CLUSTERS.forEach(cluster => {
+      html += `<div class="cluster-header" style="border-left:3px solid ${cluster.color};padding:8px 14px;margin:20px 0 8px;background:var(--surface);border-radius:0 8px 8px 0">
+        <strong style="color:${cluster.color}">${cluster.name}</strong>
+        <span style="font-size:12px;color:var(--muted);margin-left:8px">${cluster.desc}</span>
+      </div>`;
+
+      html += '<table class="heatmap"><thead><tr><th class="pt-id">№</th><th class="pt-text">Соглашение</th>';
+      names.forEach(n => { html += `<th>${n}</th>`; });
+      html += '</tr></thead><tbody>';
+
+      // Sort points within cluster by difficulty
+      const clusterPoints = cluster.points
+        .map(id => AGREEMENT_POINTS.find(p => p.id === id))
+        .filter(Boolean)
+        .sort((a,b) => {
+          const hA = (HEATMAP[a.id]||[]).filter(v=>v==='H').length;
+          const hB = (HEATMAP[b.id]||[]).filter(v=>v==='H').length;
+          return hB - hA;
+        });
+
+      clusterPoints.forEach(pt => {
+        const vals = HEATMAP[pt.id] || [];
+        const shortId = pt.id.replace('2.1.','');
+        html += `<tr><td class="pt-id">${shortId}</td><td class="pt-text">${pt.text}</td>`;
+        vals.forEach(v => {
+          const label = v==='L'?'Л':v==='M'?'С':v==='H'?'Т':'?';
+          html += `<td class="${v==='?'?'Q':v}">${label}</td>`;
+        });
+        html += '</tr>';
+      });
+      html += '</tbody></table>';
     });
-    html += '</tr>';
-  });
-  html += '</tbody></table>';
+  }
+
   el.innerHTML = html;
 }
 
@@ -593,13 +569,20 @@ function renderPersonCards() {
 
   let currentGroup = '';
   sorted.forEach(p => {
-    // Group divider
+    // Group header with narrative
     if (p.group !== currentGroup) {
       currentGroup = p.group;
-      const divider = document.createElement('div');
-      divider.className = 'group-divider';
-      divider.innerHTML = `<span class="group-divider-dot" style="background:${p.color}"></span> ${groupNames[p.group]}`;
-      container.appendChild(divider);
+      const narrative = GROUP_NARRATIVES[p.group] || {};
+      const groupBlock = document.createElement('div');
+      groupBlock.className = 'team-group';
+      groupBlock.innerHTML = `
+        <div class="team-group-header">
+          <div class="team-group-dot" style="background:${p.color}"></div>
+          <div class="team-group-title">${narrative.title || groupNames[p.group]}</div>
+        </div>
+        <p>${narrative.text || ''}</p>
+      `;
+      container.appendChild(groupBlock);
     }
 
     const card = document.createElement('div');
